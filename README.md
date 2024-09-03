@@ -1,71 +1,74 @@
-# extension README
+LLM Copilot Extension in VS Code 
+----------------------------------
 
-This is the README for your extension "extension". After writing up a brief description, we recommend including the following sections.
+1. Introduction:
+----------------
+Welcome to the documentation for the VS Code Copilot Extension, which I created. This 
+extension was developed to enhance coding efficiency by integrating advanced language 
+models like Llama 3.1, OpenAI’s GPT-3.5-turbo, and Gemini 1.5. These models offer powerful 
+code generation, suggestion capabilities, and the ability to solve complex coding problems. The 
+extension is designed with a user-friendly interface and can be easily integrated into your 
+existing workflow.
 
-## Features
+2. Prerequisites:
+-----------------
+Before using this extension, we need to ensure that we have the following installed on our 
+system:
+➢ Visual Studio Code (version 1.92.0 or higher)
+➢ Node.js (for running the extension)
+➢ TypeScript (for compiling TypeScript files)
+Additionally, we need to make sure that we have access to API keys from Together.ai, Groq, 
+OpenAI, or other supported providers to interact with the language models.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+3. Installation:
+------------------
+➢ First we clone this repository 
+➢ We then run “npm install” to install all necessary dependencies.
+➢ Thereafter , we use the command npm run compile to compile the TypeScript files.
+➢ Now to test the extension,we need to press F5 in VS Code to open a new window with 
+the extension running or run the following command in terminal window :
+code --extensionDevelopmentPath=D:\Extension\extension\ ( according to our 
+exact file location path)
 
-For example if there is an image subfolder under your extension project workspace:
+4. Overview of package.json
+----------------------------
+The package.json file is crucial as it defines the extension’s metadata, dependencies, 
+and commands. Key elements include:
+➢ Name and Version: The extension is named codesuggestion with version 0.0.1.
+➢ Engines: Specifies compatibility with VS Code version 1.92.0 or higher.
+➢ Contributes: Defines the command extension.openChat to open the chat interface.
+➢ Scripts: Includes commands for compiling TypeScript, linting, and testing.
+➢ Dependencies: Includes axios for API calls and development dependencies for 
+TypeScript, linting, and testing.
 
-\!\[feature X\]\(images/feature-x.png\)
+5. Setting Up the Command in extension.ts:
+------------------------------------------
+The extension.ts file contains the core logic:
+➢ Imports: Includes necessary modules like vscode and axios.
+➢ Activate Function: The entry point when the extension is activated, where the 
+command extension.openChat is registered.
+➢ Webview Setup: The command triggers a Webview panel that displays the chat 
+interface, allowing users to interact with the AI.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+6. Making API Calls to AI Models:
+---------------------------------
+The getCodeSnippet function is central to the extension’s operation:
+➢ Functionality: Sends a POST request to the selected AI model's API, passing the user’s 
+query.
+➢ Response Handling: The response is processed and the code snippet is returned and 
+displayed in the Webview.
+7. User Interface:
+The user interface is designed using HTML, CSS, and JavaScript:
+➢ Chat Interface: Users can input queries and select the desired AI model from a 
+dropdown menu.
+➢ Response Display: The AI’s response is displayed in a code block format for easy 
+copying and pasting.
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+8. Features:
+-------------
+➢ Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini 
+models.
+➢ Code Generation: Generates code snippets, solves LeetCode & DSA problems, and 
+supports autocompletion (coming soon).
+➢ User-Friendly Interface: Simplified design for ease of use, allowing users to interact with 
+the AI seamlessly
