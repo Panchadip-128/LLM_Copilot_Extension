@@ -72,3 +72,11 @@ models.
 supports autocompletion (coming soon).
 ➢ User-Friendly Interface: Simplified design for ease of use, allowing users to interact with 
 the AI seamlessly
+Sample chat and prompt response demonstration:
+-----------------------------------------------
+![sample_chat_interface](https://github.com/user-attachments/assets/43cab310-e93e-4040-bc4c-4390c99684f6)
+
+Personalized chat interface to match your needs :
+-------------------------------------------------
+![Personalized_response](https://github.com/user-attachments/assets/30071652-86ed-4eae-9da3-a59df866635c)
+
