@@ -66,6 +66,7 @@ copying and pasting.
 
 8. Features:
 ------------
+
 ➢ Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini 
 models.
 ➢ Code Generation: Generates code snippets, solves LeetCode & DSA problems, and 
