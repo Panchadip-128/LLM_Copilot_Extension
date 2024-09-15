@@ -67,12 +67,10 @@ copying and pasting.
 8. Features:
 ------------
 
-➢ Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini 
-models.
-➢ Code Generation: Generates code snippets, solves LeetCode & DSA problems, and 
-supports autocompletion (coming soon).
-➢ User-Friendly Interface: Simplified design for ease of use, allowing users to interact with 
-the AI seamlessly
+➢ Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini models.
+➢ Code Generation: Generates code snippets, solves LeetCode & DSA problems, and supports autocompletion
+➢ User-Friendly Interface: Simplified design for ease of use, allowing users to interact with the AI seamlessly
+
 Sample chat and prompt response demonstration:
 -----------------------------------------
 ![sample_chat_interface](https://github.com/user-attachments/assets/43cab310-e93e-4040-bc4c-4390c99684f6)
