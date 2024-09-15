@@ -55,9 +55,10 @@ interface, allowing users to interact with the AI.
 The getCodeSnippet function is central to the extension’s operation:
 ➢ Functionality: Sends a POST request to the selected AI model's API, passing the user’s 
 query.
-➢ Response Handling: The response is processed and the code snippet is returned and 
-displayed in the Webview.
+➢ Response Handling: The response is processed and the code snippet is returned and displayed in the Webview.
+
 7. User Interface:
+-------------------
 The user interface is designed using HTML, CSS, and JavaScript:
 ➢ Chat Interface: Users can input queries and select the desired AI model from a 
 dropdown menu.
