@@ -14,18 +14,18 @@ existing workflow.
 -----------------
 Before using this extension, we need to ensure that we have the following installed on our 
 system:
-➢ Visual Studio Code (version 1.92.0 or higher)
-➢ Node.js (for running the extension)
-➢ TypeScript (for compiling TypeScript files)
+- Visual Studio Code (version 1.92.0 or higher)
+- Node.js (for running the extension)
+- TypeScript (for compiling TypeScript files)
 Additionally, we need to make sure that we have access to API keys from Together.ai, Groq, 
 OpenAI, or other supported providers to interact with the language models.
 
 3. Installation:
 ------------------
-➢ First we clone this repository 
-➢ We then run “npm install” to install all necessary dependencies.
-➢ Thereafter , we use the command npm run compile to compile the TypeScript files.
-➢ Now to test the extension,we need to press F5 in VS Code to open a new window with 
+- First we clone this repository 
+- We then run “npm install” to install all necessary dependencies.
+- Thereafter , we use the command npm run compile to compile the TypeScript files.
+- Now to test the extension,we need to press F5 in VS Code to open a new window with 
 the extension running or run the following command in terminal window :
 code --extensionDevelopmentPath=D:\Extension\extension\ ( according to our 
 exact file location path)
@@ -34,43 +34,43 @@ exact file location path)
 ----------------------------
 The package.json file is crucial as it defines the extension’s metadata, dependencies, 
 and commands. Key elements include:
-➢ Name and Version: The extension is named codesuggestion with version 0.0.1.
-➢ Engines: Specifies compatibility with VS Code version 1.92.0 or higher.
-➢ Contributes: Defines the command extension.openChat to open the chat interface.
-➢ Scripts: Includes commands for compiling TypeScript, linting, and testing.
-➢ Dependencies: Includes axios for API calls and development dependencies for 
+- Name and Version: The extension is named codesuggestion with version 0.0.1.
+- Engines: Specifies compatibility with VS Code version 1.92.0 or higher.
+- Contributes: Defines the command extension.openChat to open the chat interface.
+- Scripts: Includes commands for compiling TypeScript, linting, and testing.
+- Dependencies: Includes axios for API calls and development dependencies for 
 TypeScript, linting, and testing.
 
 5. Setting Up the Command in extension.ts:
 ------------------------------------------
 The extension.ts file contains the core logic:
-➢ Imports: Includes necessary modules like vscode and axios.
-➢ Activate Function: The entry point when the extension is activated, where the 
+- Imports: Includes necessary modules like vscode and axios.
+- Activate Function: The entry point when the extension is activated, where the 
 command extension.openChat is registered.
-➢ Webview Setup: The command triggers a Webview panel that displays the chat 
+- Webview Setup: The command triggers a Webview panel that displays the chat 
 interface, allowing users to interact with the AI.
 
 6. Making API Calls to AI Models:
 ---------------------------------
 The getCodeSnippet function is central to the extension’s operation:
-➢ Functionality: Sends a POST request to the selected AI model's API, passing the user’s 
+- Functionality: Sends a POST request to the selected AI model's API, passing the user’s 
 query.
-➢ Response Handling: The response is processed and the code snippet is returned and displayed in the Webview.
+- Response Handling: The response is processed and the code snippet is returned and displayed in the Webview.
 
 7. User Interface:
 -------------------
 The user interface is designed using HTML, CSS, and JavaScript:
-➢ Chat Interface: Users can input queries and select the desired AI model from a 
+- Chat Interface: Users can input queries and select the desired AI model from a 
 dropdown menu.
-➢ Response Display: The AI’s response is displayed in a code block format for easy 
+- Response Display: The AI’s response is displayed in a code block format for easy 
 copying and pasting.
 
 8. Features:
 ------------
 
-➢ Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini models.
-➢ Code Generation: Generates code snippets, solves LeetCode & DSA problems, and supports autocompletion
-➢ User-Friendly Interface: Simplified design for ease of use, allowing users to interact with the AI seamlessly
+- Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini models.
+- Code Generation: Generates code snippets, solves LeetCode & DSA problems, and supports autocompletion
+- User-Friendly Interface: Simplified design for ease of use, allowing users to interact with the AI seamlessly
 
 Sample chat and prompt response demonstration:
 -----------------------------------------
