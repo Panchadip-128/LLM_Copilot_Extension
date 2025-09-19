@@ -10,24 +10,58 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.openChat"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.openChat",
-        "title": "LLM_Code_Gen"
+        "command": "codesuggestion.getCode",
+        "title": "Get Code Suggestion"
+      }
+    ],
+    "configuration": {
+      "title": "Code Assistant Configuration",
+      "properties": {
+        "codeAssistant.activeModel": {
+          "type": "string",
+          "default": "groq",
+          "enum": [
+            "groq",
+            "gemini",
+            "gpt"
+          ],
+          "enumDescriptions": [
+            "Use Groq's LLama2 70B model",
+            "Use Google's Gemini Pro model",
+            "Use OpenAI compatible models"
+          ],
+          "description": "Select which AI model to use"
+        },
+        "codeAssistant.groq.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for Groq"
+        },
+        "codeAssistant.gemini.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for Google Gemini"
+        },
+        "codeAssistant.gpt.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for GPT"
+        },
+        "codeAssistant.gpt.model": {
+          "type": "string",
+          "default": "gpt-3.5-turbo",
+          "description": "Model name for GPT (e.g., gpt-3.5-turbo)"
+        }
+      }
     }
-    ]
   },
-  "models": [
-    {
-      "title": "Llama 3.1 8B",
-      "provider": "together",
-      "model": "llama3.1-405b",
-      "apiKey": "<69773c73bfae9b33cb5daa8d4c11858ef653b4f0047246f7879e6c5782bac6aa>"
-    }
-  ],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
@@ -50,6 +84,9 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "axios": "^1.7.3"
-  }
+    "@google/generative-ai": "^0.2.1",
+    "axios": "^1.7.3",
+    "openai": "^4.104.0"
+  },
+  "publisher": "Panchadip"
 }
