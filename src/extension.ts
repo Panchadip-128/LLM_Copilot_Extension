@@ -113,6 +113,75 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     context.subscriptions.push(disposable);
+
+    // NEW: Command to generate workflow diagram
+    context.subscriptions.push(
+        vscode.commands.registerCommand('codesuggestion.generateWorkflowDiagram', async () => {
+            const editor = vscode.window.activeTextEditor;
+            if (!editor) {
+                vscode.window.showErrorMessage('No active editor found. Please select some code to generate a workflow diagram.');
+                return;
+            }
+
+            const selection = editor.selection;
+            const selectedText = editor.document.getText(selection);
+
+            if (!selectedText) {
+                vscode.window.showErrorMessage('No code selected. Please select some code to generate a workflow diagram.');
+                return;
+            }
+
+            const providerType = vscode.workspace.getConfiguration('codeAssistant').get<string>('activeModel', 'groq');
+            const provider = LLMFactory.getProvider(providerType);
+
+            try {
+                const prompt = `You are an expert code analysis tool. Your task is to convert a given code block into a Mermaid.js flowchart syntax.
+
+CRITICAL INSTRUCTIONS:
+1. Your response MUST start with 'graph TD' or 'graph LR'.
+2. Your response MUST contain ONLY the valid Mermaid.js code.
+3. Do NOT include ANY explanations, apologies, or markdown fences like \`\`\`mermaid.
+4. Analyze the code for logical branches (if/else), loops, and error handling (try/except) to create the flowchart.
+
+Here is the code to analyze:
+\`\`\`
+${selectedText}
+\`\`\``;
+                const mermaidSyntax = await provider.generateResponse(prompt);
+
+                console.log("--- LLM Raw Output for Mermaid ---");
+                console.log(mermaidSyntax);
+                console.log("---------------------------------");
+
+                // Ensure the webview panel is created and updated with the generated Mermaid.js syntax
+                const panel = vscode.window.createWebviewPanel(
+                    'workflowDiagram', // Identifier
+                    'Workflow Diagram', // Title
+                    vscode.ViewColumn.One, // Editor column to show the new webview panel
+                    { enableScripts: true } // Options
+                );
+
+                const sanitizedResponse = mermaidSyntax
+                    .replace(/```mermaid/g, '') // Remove markdown fences
+                    .replace(/```/g, '') // Remove any remaining fences
+                    .trim(); // Remove extra whitespace
+
+                console.log("--- Sanitized Mermaid Output ---");
+                console.log(sanitizedResponse);
+                console.log("--------------------------------");
+
+                // NEW: Validate the Mermaid.js syntax before rendering
+                if (!sanitizedResponse.startsWith('graph TD') && !sanitizedResponse.startsWith('graph LR')) {
+                    vscode.window.showErrorMessage('Invalid Mermaid.js syntax generated. Please try again.');
+                    return;
+                }
+
+                panel.webview.html = getWebviewContentWithMermaid(sanitizedResponse);
+            } catch (error) {
+                vscode.window.showErrorMessage(`Error generating workflow diagram: ${(error as Error).message}`);
+            }
+        })
+    );
 }
 
 
@@ -360,6 +429,26 @@ function getWebviewContent(): string {
         </body>
         </html>
     `;
+}
+
+// NEW: Function to generate webview content with Mermaid.js for rendering the workflow diagram
+function getWebviewContentWithMermaid(mermaidSyntax: string): string {
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Workflow Diagram</title>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({ startOnLoad: true });</script>
+    </head>
+    <body>
+        <h1>Generated Workflow Diagram</h1>
+        <div class="mermaid">
+            ${mermaidSyntax}
+        </div>
+    </body>
+    </html>`;
 }
 
 export function deactivate() {}
