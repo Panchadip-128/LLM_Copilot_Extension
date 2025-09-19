@@ -1,76 +1,222 @@
-LLM Copilot Extension in VS Code 
-----------------------------------
+# LLM Copilot Extension for VS Code
 
-1. Introduction:
-----------------
-Welcome to the documentation for the VS Code Copilot Extension, which I created. This 
-extension was developed to enhance coding efficiency by integrating advanced language 
-models like Llama 3.1, OpenAI’s GPT-3.5-turbo, and Gemini 1.5. These models offer powerful 
-code generation, suggestion capabilities, and the ability to solve complex coding problems. The 
-extension is designed with a user-friendly interface and can be easily integrated into your 
-existing workflow.
+A comprehensive **Visual Studio Code extension** designed to enhance your development workflow by integrating multiple **state-of-the-art Large Language Models (LLMs)** directly into the editor. This extension provides code generation, intelligent suggestions, problem-solving assistance, and even **workflow visualization**—helping developers save time, boost productivity, and understand code structurally.
+Active GROQ API Key (FREE VERSION) supports : Gemini 1.5 Flash , Llama 3.1 (8B, 405B), Gemma 2 (9B). Paid APIs can be used to access more advanced models.
+---
 
-2. Prerequisites:
------------------
-Before using this extension, we need to ensure that we have the following installed on our 
-system:
-- Visual Studio Code (version 1.92.0 or higher)
-- Node.js (for running the extension)
-- TypeScript (for compiling TypeScript files)
-Additionally, we need to make sure that we have access to API keys from Together.ai, Groq, 
-OpenAI, or other supported providers to interact with the language models.
+## Table of Contents
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [Demos](#demos)
+- [Prerequisites](#prerequisites)
+- [Installation and Setup](#installation-and-setup)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Technical Overview](#technical-overview)
+- [Code Snippets](#code-snippets)
+- [Repository](#repository)
 
-3. Installation:
-------------------
-- First we clone this repository 
-- We then run “npm install” to install all necessary dependencies.
-- Thereafter , we use the command npm run compile to compile the TypeScript files.
-- Now to test the extension,we need to press F5 in VS Code to open a new window with 
-the extension running or run the following command in terminal window :
-code --extensionDevelopmentPath=D:\Extension\extension\ ( according to our 
-exact file location path)
+---
 
-4. Overview of package.json
-----------------------------
-The package.json file is crucial as it defines the extension’s metadata, dependencies, 
-and commands. Key elements include:
-- Name and Version: The extension is named codesuggestion with version 0.0.1.
-- Engines: Specifies compatibility with VS Code version 1.92.0 or higher.
-- Contributes: Defines the command extension.openChat to open the chat interface.
-- Scripts: Includes commands for compiling TypeScript, linting, and testing.
-- Dependencies: Includes axios for API calls and development dependencies for 
-TypeScript, linting, and testing.
+## Introduction
+The **LLM Copilot Extension for VS Code** was developed to enhance coding efficiency by seamlessly integrating **advanced AI models** like **Llama 3.1, OpenAI GPT-3.5-Turbo, and Google Gemini 1.5**. These models enable:
+- Context-aware code generation
+- Autocompletion and bug fixing
+- LeetCode/DSA problem-solving
+- Workflow diagram generation from functions
 
-5. Setting Up the Command in extension.ts:
-------------------------------------------
-The extension.ts file contains the core logic:
-- Imports: Includes necessary modules like vscode and axios.
-- Activate Function: The entry point when the extension is activated, where the 
-command extension.openChat is registered.
-- Webview Setup: The command triggers a Webview panel that displays the chat 
-interface, allowing users to interact with the AI.
+This extension uses a **modular provider architecture**, making it easy to plug in new providers and scale capabilities as newer LLMs emerge.
 
-6. Making API Calls to AI Models:
----------------------------------
-The getCodeSnippet function is central to the extension’s operation:
-- Functionality: Sends a POST request to the selected AI model's API, passing the user’s 
-query.
-- Response Handling: The response is processed and the code snippet is returned and displayed in the Webview.
+---
 
-7. User Interface:
--------------------
-The user interface is designed using HTML, CSS, and JavaScript:
-- Chat Interface: Users can input queries and select the desired AI model from a 
-dropdown menu.
-- Response Display: The AI’s response is displayed in a code block format for easy 
-copying and pasting.
+## Key Features
 
-8. Features:
-------------
+### Multi-Provider & Multi-Model Support
+Switch between AI providers and their flagship models directly within the chat interface:
 
-- Model Integration: Supports switching between Llama 3.1, GPT-3.5-turbo, and Gemini models.
-- Code Generation: Generates code snippets, solves LeetCode & DSA problems, and supports autocompletion
-- User-Friendly Interface: Simplified design for ease of use, allowing users to interact with the AI seamlessly
+| Provider   | Supported Models                             |
+|------------|----------------------------------------------|
+| **Groq**   | Llama 3.1 (8B, 405B), Gemma 2 (9B)           |
+| **Google** | Gemini 1.5 Pro, Gemini 1.5 Flash             |
+| **OpenAI** | GPT-4o, GPT-3.5-Turbo                        |
+
+### Interactive Chat Interface
+- Intuitive Webview panel for querying LLMs.
+- Handles everything from **small snippets** to **complex architecture discussions**.
+
+### Code-to-Workflow Visualization
+- Automatically generate **Mermaid.js flowcharts** from selected functions.
+- Helps document, visualize, and debug complex logic.
+
+### Code Generation & Autocompletion
+- Generate context-aware snippets.
+- Solve **LeetCode & DSA** problems.
+- Assist with debugging and unit test generation.
+
+### User-Friendly UI
+- Built with HTML, CSS, and JS.
+- Dropdown for model selection.
+- AI responses displayed in **formatted code blocks**.
+
+---
+
+## Demos
+- **Interactive Chat with Provider Selection**  
+  *[GIF Placeholder – Chat interface showing provider/model switching]*
+
+- **Workflow Diagram Generation**  
+  *[GIF Placeholder – Function selection → Mermaid flowchart rendering]*
+
+---
+
+## Prerequisites
+Ensure the following are installed:
+- **Visual Studio Code** (v1.92.0 or higher)
+- **Node.js** (v18.x or higher)
+- **TypeScript** (for compiling)
+- API Keys from supported providers: **Groq, OpenAI, Google, Together.ai**
+
+---
+
+## Installation and Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Panchadip-128/LLM_Copilot_Extension
+cd LLM_Copilot_Extension
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Compile TypeScript
+```bash
+npm run compile
+```
+
+### 4. Run the extension
+```bash
+code --extensionDevelopmentPath=PATH_TO_PROJECT
+```
+Or press **F5** inside VS Code.
+
+---
+
+## Configuration
+Add your API keys to `settings.json`:
+```json
+{
+    "codeAssistant.groq.apiKey": "YOUR_GROQ_API_KEY",
+    "codeAssistant.gemini.apiKey": "YOUR_GEMINI_API_KEY",
+    "codeAssistant.gpt.apiKey": "YOUR_OPENAI_API_KEY"
+}
+```
+
+---
+
+## Usage
+- Launch the extension (**F5** in VS Code).
+- Open Command Palette (**Ctrl+Shift+P**) → `Open AI Code Assistant`.
+- Choose a provider, type queries, and interact in the chat panel.
+- Right-click on any function → `Generate Workflow Diagram`.
+
+---
+
+## Technical Overview
+<details>
+<summary><b>Click to expand</b></summary>
+
+- **package.json**
+  - Metadata (name, version, engines)
+  - Defines commands (e.g., `extension.openChat`)
+  - Includes dependencies like **axios** for API calls
+
+- **extension.ts**
+  - Registers commands
+  - Creates and manages Webview panel
+  - Orchestrates communication between **UI ↔ Backend ↔ API Providers**
+
+- **API Providers**
+  - Modular classes: `GroqProvider`, `GeminiProvider`, `GPTProvider`
+  - Encapsulate authentication, request formatting, response parsing
+
+- **getCodeSnippet Function**
+  - Sends POST requests with user query
+  - Processes and formats AI responses
+  - Returns code snippets or workflow diagrams
+
+- **UI (Webview)**
+  - Built with HTML, CSS, JS
+  - Dropdown for provider/model selection
+  - AI response shown in code block with copy support
+
+</details>
+
+---
+
+## Code Snippets
+
+### extension.ts (Activate Function) - Sample code to demonstrate our idea
+```ts
+export function activate(context: vscode.ExtensionContext) {
+    let disposable = vscode.commands.registerCommand('extension.openChat', () => {
+        const panel = vscode.window.createWebviewPanel(
+            'aiAssistant',
+            'AI Code Assistant',
+            vscode.ViewColumn.One,
+            { enableScripts: true }
+        );
+        panel.webview.html = getWebviewContent();
+    });
+    context.subscriptions.push(disposable);
+}
+```
+
+### Making API Calls (getCodeSnippet) - Sample code to demonstrate our idea
+```ts
+async function getCodeSnippet(query: string, provider: string): Promise<string> {
+    const response = await axios.post(`https://api.${provider}.com/v1/generate`, {
+        prompt: query,
+        max_tokens: 500
+    }, {
+        headers: { 'Authorization': `Bearer ${getApiKey(provider)}` }
+    });
+    return response.data.output || "No response received.";
+}
+```
+
+### Sample Webview UI (HTML)
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #response { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>AI Code Assistant</h2>
+  <select id="modelSelector">
+    <option value="gpt">OpenAI GPT</option>
+    <option value="gemini">Gemini</option>
+    <option value="llama">Llama</option>
+  </select>
+  <textarea id="query" placeholder="Type your question here..."></textarea>
+  <button onclick="sendQuery()">Ask</button>
+  <pre id="response"></pre>
+</body>
+</html>
+```
+
+---
+
+## Repository
+Access the complete source code here:  
+👉 [LLM Copilot Extension on GitHub](https://github.com/Panchadip-128/LLM_Copilot_Extension)
+
 
 Sample chat and prompt response demonstration:
 -----------------------------------------
