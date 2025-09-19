@@ -1,7 +1,8 @@
 # LLM Copilot Extension for VS Code
 
 A comprehensive **Visual Studio Code extension** designed to enhance your development workflow by integrating multiple **state-of-the-art Large Language Models (LLMs)** directly into the editor. This extension provides code generation, intelligent suggestions, problem-solving assistance, and even **workflow visualization**—helping developers save time, boost productivity, and understand code structurally.
-Active GROQ API Key (FREE VERSION) supports : Gemini 1.5 Flash , Llama 3.1 (8B, 405B), Gemma 2 (9B). Paid APIs can be used to access more advanced models.
+ 
+ Active GROQ API Key (FREE VERSION) supports : Gemini 1.5 Flash , Llama 3.1 (8B, 405B), Gemma 2 (9B). Paid APIs can be used to access more advanced models.
 ---
 
 ## Table of Contents
