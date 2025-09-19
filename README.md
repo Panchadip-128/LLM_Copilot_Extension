@@ -80,3 +80,6 @@ Personalized chat interface to match your needs :
 -----------------------------------------
 ![Personalized_response](https://github.com/user-attachments/assets/30071652-86ed-4eae-9da3-a59df866635c)
 
+Upadted Version: <img width="1493" height="926" alt="image" src="https://github.com/user-attachments/assets/9be09fba-728d-4405-ab4a-924f81ca0df8" />
+
+
