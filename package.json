@@ -19,6 +19,10 @@
       {
         "command": "codesuggestion.getCode",
         "title": "Get Code Suggestion"
+      },
+      {
+        "command": "codesuggestion.generateWorkflowDiagram",
+        "title": "AI: Generate Workflow Diagram"
       }
     ],
     "configuration": {
@@ -60,6 +64,14 @@
           "description": "Model name for GPT (e.g., gpt-3.5-turbo)"
         }
       }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "codesuggestion.generateWorkflowDiagram",
+          "when": "editorHasSelection"
+        }
+      ]
     }
   },
   "scripts": {
