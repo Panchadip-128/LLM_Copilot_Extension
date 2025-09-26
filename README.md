@@ -277,7 +277,29 @@ Likewise code analysis id segmented into multiple parameters as follows in sidew
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/54262a4d-8201-466b-ad88-9e08a9dd0907" />
 
 
+Overall, This extension serves as a powerful companion for 
+### Code Generation & Problem Solving
 
+1. **LeetCode & DSA Problems**:
+   - Paste the problem description
+   - Get optimized solutions with explanations
+   - Receive time and space complexity analysis
+
+2. **Unit Test Generation**:
+   - Select the code to test
+   - Request test generation
+   - Get comprehensive test cases with edge cases
+
+3. **Debugging Assistance**:
+   - Share error messages or stack traces
+   - Get step-by-step debugging guidance
+   - Receive suggested fixes and explanations
+  
+4. **Multi feature pattern extraction and Visualization**:
+   - Performance Analysis (Time Complexity, Space Complexity and its instances)
+   - Design Patterns (Location inside Code, Its Impact and likewise suggestions)
+   - Anti Patterns( To be avoided further for improvements, its solution and severity)
+   - Recommendations within code and its potential performance analysis
 
 
 
