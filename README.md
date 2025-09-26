@@ -26,10 +26,10 @@ The **LLM Copilot Extension for VS Code** was developed to enhance coding effici
 - LeetCode/DSA problem-solving
 - Workflow diagram generation from functions
 -  **Code Analysis Features**:
-  - Right-click menu integration
-  - Detailed pattern analysis reports
-  - Performance metrics report
-  - Actionable improvement suggestions
+  - -Right-click menu integration
+  - -Detailed pattern analysis reports
+  - -Performance metrics report
+  - -Actionable improvement suggestions
 
 This extension uses a **modular provider architecture**, making it easy to plug in new providers and scale capabilities as newer LLMs emerge.
 
