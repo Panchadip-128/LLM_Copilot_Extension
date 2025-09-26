@@ -68,11 +68,17 @@ Switch between AI providers and their flagship models directly within the chat i
 
 ## Demos
 - **Interactive Chat with Provider Selection**  
-  *[GIF Placeholder – Chat interface showing provider/model switching]*
+  *<img width="1918" height="1077" alt="image" src="https://github.com/user-attachments/assets/eec984c0-c6b2-4375-9144-527301bc7f40" />
+
+*
+* <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/257d3381-b1a8-42d8-9649-5a287811e67b" />
+ *
+
 
 - **Workflow Diagram Generation**  
-  *[GIF Placeholder – Function selection → Mermaid flowchart rendering]*
-
+  *<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/ce79d81d-0b53-46e4-9714-232da077a1b9" />
+*
+  
 ---
 
 ## Prerequisites
