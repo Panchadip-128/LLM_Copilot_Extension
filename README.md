@@ -237,5 +237,16 @@ Upadted Version: <img width="1493" height="926" alt="image" src="https://github.
 
 <img width="1919" height="1078" alt="image" src="https://github.com/user-attachments/assets/4f08e7a7-a5a2-4658-bcbc-98cdc3fbec93" />
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/ce79d81d-0b53-46e4-9714-232da077a1b9" />
+
+Likewise code analysis id segmented into multiple parameters as follows in sidewise copilot window:
+
+<img width="728" height="956" alt="image" src="https://github.com/user-attachments/assets/dbf29c66-b124-4d40-ba8b-15dd45d3d3e1" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/98283528-3f5a-42b9-a5d8-84496dc9c0c0" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/54262a4d-8201-466b-ad88-9e08a9dd0907" />
+
+
+
+
 
 
