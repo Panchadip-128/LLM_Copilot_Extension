@@ -64,6 +64,26 @@ Switch between AI providers and their flagship models directly within the chat i
 - Dropdown for model selection.
 - AI responses displayed in **formatted code blocks**.
 
+### Workflow Diagram Generation
+To visualize your code flow:
+1. Select the code you want to visualize
+2. Right-click and select "AI: Generate Workflow Diagram"
+3. View the generated Mermaid.js flowchart showing:
+   - Control flow
+   - Conditional branches
+   - Loop structures
+   - Error handling paths
+
+### Code Pattern Detection
+To analyze patterns in your code:
+1. Select the code you want to analyze
+2. Right-click and select "AI: Detect Code Patterns"
+3. View the comprehensive analysis including:
+   - Design patterns identified with confidence levels
+   - Anti-patterns and code smells
+   - Performance metrics and bottlenecks
+   - Actionable recommendations
+
 ---
 
 ## Demos
