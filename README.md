@@ -46,6 +46,11 @@ Switch between AI providers and their flagship models directly within the chat i
 | **Google** | Gemini 1.5 Pro, Gemini 1.5 Flash             |
 | **OpenAI** | GPT-4o, GPT-3.5-Turbo                        |
 
+### Architectural Flow:
+ <img src="https://github.com/user-attachments/assets/9093da89-a2a6-4591-9784-ddd0db5900b9" width="1200"/> |
+ Architectural Diagram of step by step input propagation |
+
+
 ### Interactive Chat Interface
 - Intuitive Webview panel for querying LLMs.
 - Handles everything from **small snippets** to **complex architecture discussions**.
