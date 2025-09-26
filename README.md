@@ -278,7 +278,7 @@ Likewise code analysis id segmented into multiple parameters as follows in sidew
 
 
 Overall, This extension serves as a powerful companion for 
-### Code Generation & Problem Solving
+### Code Generation , Problem Solving , Simplification and Visualization of Complex Refactored Codes , Performance Analysis , Suggestions for improvements
 
 1. **LeetCode & DSA Problems**:
    - Paste the problem description
