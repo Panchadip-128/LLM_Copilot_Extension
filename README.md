@@ -1,4 +1,4 @@
-# LLM Copilot Extension for VS Code
+# Multi-Model AI Copilot for Code Synthesis, Debugging, and Workflow Visualization
 
 A comprehensive **Visual Studio Code extension** designed to enhance your development workflow by integrating multiple **state-of-the-art Large Language Models (LLMs)** directly into the editor. This extension provides code generation, intelligent suggestions, problem-solving assistance, and even **workflow visualization**—helping developers save time, boost productivity, and understand code structurally.
  
